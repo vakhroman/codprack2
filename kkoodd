@@ -1,0 +1,16 @@
+Import mysql.connector
+
+Connect_args = {
+    “host”: “192.0.2.1”,
+      “port”: 3306,
+     “user”: “testuser”, 
+     “password”: “password”,
+}
+Db = mysql.connector.connect(**connect_args)
+Cursor = db.cursor(named_tuple=True)
+Sql = “SELECT * FROM settings”
+Cursor.execute(sql)
+Print (cursor.row())
+
+Cursor.close()
+Db.close()
